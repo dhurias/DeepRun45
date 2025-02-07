@@ -1,17 +1,89 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link href="./DR45CSS.css" rel="stylesheet">
-    <script src="./DR45MODEL.js" defer></script>
-    <script src="./DR45VIEW.js" defer></script>
-    <script src="./DR45CONTROLLER.js" defer></script>
-    <title>Deep Run 45</title>
-  </head>
-  <body>
-    <h1>Test</h1>
-    <p>hi</p>
-    <g>helllooo</g>
-    <h1>test</h1>
-  </body>
-</html>
+<html lang="en">
 
+<head>
+  <title>Deep Run Drive 45</title>
+    <link href="./style.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <!-- <script src="./model.js" defer></script>
+    <script src="./drhs45LSM.js" defer></script>
+    <script src="./view.js" defer></script>
+    <script src="./controller.js" defer></script> -->
+</head>
+<body>
+  <section>
+    <h1>Deep Run Drive 45</h1>
+    <div class="num" id="stopwatch">
+      <span id="hr">00</span>:<span id="min">00</span>:<span id="sec">00</span>:<span id="count">00</span>
+    </div>
+    <button class="btn" id="start">Start</button> <!--onclick="startStopwatch()"-->
+    <br>
+    <br>
+    <div>
+      <button class="tbtn" id="stop">Stop</button> <!--onclick="stopStopwatch()"-->
+      <button class="tbtn" id="insert">Insert</button> <!--onclick="insertStopwatch()"-->
+    </div>
+    <br>
+    <div>
+      <input id="password" , class="password" , type="password">
+      <button class="abtn" onclick="approve()">Approve</button>
+    </div>
+    <br>
+    <p>If one of the rows bellow is not accurate please input the row number bellow</p>
+    <p>and your password above then hit delete</p>
+
+    <input id="delrow" , class="delrow" , type="text">
+    <button class="dbtn" onclick="deleteRow()">Delete</button>
+    <br>
+    <br>
+    <button class="dbtn" onclick="calc()">Calculate</button>
+    <br>
+    <br>
+    <table id="Data" class="table" border=1>
+      <tr>
+        <th>Time</th>
+        <th>Hour</th>
+        <th>Minute</th>
+        <th>Second</th>
+        <th>Approved</th>
+      </tr>
+    </table>
+    <b>
+      <p>Total Night Time</p>
+    </b>
+    <table id="totaln" class="tablen" border=1>
+      <tr>
+        <th>Hour</th>
+        <th>Minute</th>
+        <th>Second</th>
+      </tr>
+      <tr>
+        <th id="tnh"></th>
+        <th id="tnm"></th>
+        <th id="tns"></th>
+      </tr>
+    </table>
+    <b>
+      <p>Total</p>
+    </b>
+    <table id="total" class="table" border=1>
+      <tr>
+        <th>Hour</th>
+        <th>Minute</th>
+        <th>Second</th>
+      </tr>
+      <tr>
+        <th id="th"></th>
+        <th id="tm"></th>
+        <th id="ts"></th>
+      </tr>
+    </table>
+    <br>
+    <input value='Print' type='button' class="print" onclick='handlePrint()' />
+
+    <p class="ag">I give confirmation that _______________________ (Students Name) has comleted the Deep Run 45.
+      _________________________(Guardians Signiture)</p>
+    </section>
+</body>
+
+</html>
