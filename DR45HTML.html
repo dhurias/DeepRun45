@@ -12,32 +12,37 @@
 </head>
 <body>
   <section>
-    <h1>Deep Run Drive 45</h1>
+    <h1 id="dr45">Deep Run Drive 45</h1>
     <div class="num" id="stopwatch">
       <span id="hr">00</span>:<span id="min">00</span>:<span id="sec">00</span>:<span id="count">00</span>
     </div>
+    <!-- Start & Stop buttons inside a flex container -->
+<div class="start-stop-container">
     <button class="btn" id="start">Start</button> <!--onclick="startStopwatch()"-->
-    <br>
-    <br>
-    <div>
-      <button class="tbtn" id="stop">Stop</button> <!--onclick="stopStopwatch()"-->
-      <button class="tbtn" id="insert">Insert</button> <!--onclick="insertStopwatch()"-->
-    </div>
+    <button class="tbtn" id="stop">Stop</button> <!--onclick="stopStopwatch()"-->
+  </div>
+  
+  
+  <!-- Insert button below Start & Stop -->
+  <div>
+    <button class="tbtn" id="insert">Insert</button> <!--onclick="insertStopwatch()"-->
+  </div>
+  
     <br>
     <div>
       <input id="password" , class="password" , type="password">
       <button class="abtn" onclick="approve()">Approve</button>
     </div>
     <br>
+    <!--
     <p>If one of the rows bellow is not accurate please input the row number bellow</p>
     <p>and your password above then hit delete</p>
 
     <input id="delrow" , class="delrow" , type="text">
     <button class="dbtn" onclick="deleteRow()">Delete</button>
     <br>
-    <br>
+    -->
     <button class="dbtn" onclick="calc()">Calculate</button>
-    <br>
     <br>
     <table id="Data" class="table" border=1>
       <tr>
@@ -48,6 +53,7 @@
         <th>Approved</th>
       </tr>
     </table>
+    <!--
     <b>
       <p>Total Night Time</p>
     </b>
@@ -84,6 +90,7 @@
     <p class="ag">I give confirmation that _______________________ (Students Name) has comleted the Deep Run 45.
       _________________________(Guardians Signiture)</p>
     </section>
+-->
 </body>
 
 </html>
