@@ -1,96 +1,96 @@
-// Stopwatch functionality
-let startBtn = document.getElementById('start');
-let stopBtn = document.getElementById('stop');
-let insertBtn = document.getElementById('insert');
+document.addEventListener("DOMContentLoaded", function () {
+    let startBtn = document.getElementById('start');
+    let stopBtn = document.getElementById('stop');
+    let insertBtn = document.getElementById('insert');
 
-let hour = 0, minute = 0, second = 0, count = 0;
-let timer = false;
+    let hr = document.getElementById('hr');
+    let min = document.getElementById('min');
+    let sec = document.getElementById('sec');
+    let count = document.getElementById('count');
 
-startBtn.addEventListener('click', function () {
-    timer = true;
-    stopWatch();
-});
-
-stopBtn.addEventListener('click', function () {
-    timer = false;
-});
-
-insertBtn.addEventListener('click', function () {
-    insertStopwatch();
-});
-
-// Stopwatch function
-function stopWatch() {
-    if (timer) {
-        count++;
-
-        if (count == 100) {
-            second++;
-            count = 0;
-        }
-        if (second == 60) {
-            minute++;
-            second = 0;
-        }
-        if (minute == 60) {
-            hour++;
-            minute = 0;
-            second = 0;
-        }
-
-        let hrString = hour < 10 ? "0" + hour : hour;
-        let minString = minute < 10 ? "0" + minute : minute;
-        let secString = second < 10 ? "0" + second : second;
-        let countString = count < 10 ? "0" + count : count;
-
-        document.getElementById('hr').innerHTML = hrString;
-        document.getElementById('min').innerHTML = minString;
-        document.getElementById('sec').innerHTML = secString;
-        document.getElementById('count').innerHTML = countString;
-
-        setTimeout(stopWatch, 10);
-    }
-}
-
-// Function to insert stopwatch time into the table
-function insertStopwatch() {
     let table = document.getElementById("Data");
-    let newRow = table.insertRow(-1);
 
-    let dateTime = new Date();
+    let hour = 0, minute = 0, second = 0, milliseconds = 0;
+    let timer = false;
 
-    // Format date
-    let date = dateTime.toLocaleDateString(); 
+    startBtn.addEventListener('click', function () {
+        if (!timer) {
+            timer = true;
+            stopWatch();
+        }
+    });
 
-    // Format time with AM/PM
-    let timeNow = dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+    stopBtn.addEventListener('click', function () {
+        timer = false;
+    });
 
-    // Determine if it's day or night
-    let hours = dateTime.getHours();
-    let dayNight = (hours >= 6 && hours < 18) ? "Day" : "Night";
+    insertBtn.addEventListener('click', function () {
+        insertStopwatch();
+    });
 
-    // Insert values into the new row
-    newRow.insertCell(0).innerHTML = date;
-    newRow.insertCell(1).innerHTML = timeNow;
-    newRow.insertCell(2).innerHTML = dayNight;
-    newRow.insertCell(3).innerHTML = document.getElementById('hr').innerHTML;
-    newRow.insertCell(4).innerHTML = document.getElementById('min').innerHTML;
-    newRow.insertCell(5).innerHTML = document.getElementById('sec').innerHTML;
-    newRow.insertCell(6).innerHTML = "Pending"; // Approval status placeholder
+    function stopWatch() {
+        if (timer) {
+            milliseconds++;
+            if (milliseconds == 100) {
+                second++;
+                milliseconds = 0;
+            }
+            if (second == 60) {
+                minute++;
+                second = 0;
+            }
+            if (minute == 60) {
+                hour++;
+                minute = 0;
+            }
 
-    // Reset stopwatch after inserting
-    resetStopwatch();
-}
+            hr.innerHTML = formatTime(hour);
+            min.innerHTML = formatTime(minute);
+            sec.innerHTML = formatTime(second);
+            count.innerHTML = formatTime(milliseconds);
 
-// Reset function
-function resetStopwatch() {
-    timer = false;
-    hour = 0;
-    minute = 0;
-    second = 0;
-    count = 0;
-    document.getElementById('hr').innerHTML = "00";
-    document.getElementById('min').innerHTML = "00";
-    document.getElementById('sec').innerHTML = "00";
-    document.getElementById('count').innerHTML = "00";
-}
+            setTimeout(stopWatch, 10);
+        }
+    }
+
+    function insertStopwatch() {
+        let dateTime = new Date();
+
+        // Format date
+        let date = dateTime.toLocaleDateString('en-US');
+
+        // Format time with AM/PM
+        let timeNow = dateTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+
+        // Determine if it's day or night
+        let hours = dateTime.getHours();
+        let dayNight = (hours >= 6 && hours < 18) ? "Day" : "Night";
+
+        let newRow = table.insertRow(-1);
+        newRow.insertCell(0).innerHTML = date;
+        newRow.insertCell(1).innerHTML = timeNow;
+        newRow.insertCell(2).innerHTML = dayNight;
+        newRow.insertCell(3).innerHTML = hr.innerHTML;
+        newRow.insertCell(4).innerHTML = min.innerHTML;
+        newRow.insertCell(5).innerHTML = sec.innerHTML;
+        newRow.insertCell(6).innerHTML = "Pending"; // Approval status
+
+        resetStopwatch();
+    }
+
+    function resetStopwatch() {
+        timer = false;
+        hour = 0;
+        minute = 0;
+        second = 0;
+        milliseconds = 0;
+        hr.innerHTML = "00";
+        min.innerHTML = "00";
+        sec.innerHTML = "00";
+        count.innerHTML = "00";
+    }
+
+    function formatTime(value) {
+        return value < 10 ? "0" + value : value;
+    }
+});
