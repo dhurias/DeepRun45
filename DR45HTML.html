@@ -1,96 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>Deep Run Drive 45</title>
-    <link href="./DR45CSS.css" rel="stylesheet">
-    <script src="./DR45SCRIPT(TEMP).js" defer></script>
-    <!-- <script src="./DR45MODEL.js" defer></script>
-    <script src="./DR45LSM.js" defer></script>
-    <script src="./DR45VIEW.js" defer></script>
-    <script src="./DR45CONTROLLER.js" defer></script> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch Logger</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <section>
-    <h1 id="dr45">Deep Run Drive 45</h1>
-    <div class="num" id="stopwatch">
-      <span id="hr">00</span>:<span id="min">00</span>:<span id="sec">00</span>:<span id="count">00</span>
-    </div>
-    <!-- Start & Stop buttons inside a flex container -->
-<div class="start-stop-container">
-    <button class="btn" id="start">Start</button> <!--onclick="startStopwatch()"-->
-    <button class="tbtn" id="stop">Stop</button> <!--onclick="stopStopwatch()"-->
-  </div>
-  
-  
-  <!-- Insert button below Start & Stop -->
-  <div>
-    <button class="tbtn" id="insert">Insert</button> <!--onclick="insertStopwatch()"-->
-  </div>
-  
-    <br>
-    <div>
-      <input id="password" , class="password" , type="password">
-      <button class="abtn" onclick="approve()">Approve</button>
-    </div>
-    <br>
-    <!--
-    <p>If one of the rows bellow is not accurate please input the row number bellow</p>
-    <p>and your password above then hit delete</p>
 
-    <input id="delrow" , class="delrow" , type="text">
-    <button class="dbtn" onclick="deleteRow()">Delete</button>
-    <br>
-    -->
-    <button class="dbtn" onclick="calc()">Calculate</button>
-    <br>
-    <table id="Data" class="table" border=1>
-      <tr>
-        <th>Time</th>
-        <th>Hour</th>
-        <th>Minute</th>
-        <th>Second</th>
-        <th>Approved</th>
-      </tr>
-    </table>
-    <!--
-    <b>
-      <p>Total Night Time</p>
-    </b>
-    <table id="totaln" class="tablen" border=1>
-      <tr>
-        <th>Hour</th>
-        <th>Minute</th>
-        <th>Second</th>
-      </tr>
-      <tr>
-        <th id="tnh"></th>
-        <th id="tnm"></th>
-        <th id="tns"></th>
-      </tr>
-    </table>
-    <b>
-      <p>Total</p>
-    </b>
-    <table id="total" class="table" border=1>
-      <tr>
-        <th>Hour</th>
-        <th>Minute</th>
-        <th>Second</th>
-      </tr>
-      <tr>
-        <th id="th"></th>
-        <th id="tm"></th>
-        <th id="ts"></th>
-      </tr>
-    </table>
-    <br>
-    <input value='Print' type='button' class="print" onclick='handlePrint()' />
+    <div class="stopwatch-container">
+        <h1>Stopwatch Logger</h1>
+        
+        <div class="stopwatch">
+            <span id="hr">00</span>:<span id="min">00</span>:<span id="sec">00</span>:<span id="count">00</span>
+        </div>
+        
+        <div class="buttons">
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+            <button id="insert">Insert</button>
+        </div>
+    </div>
 
-    <p class="ag">I give confirmation that _______________________ (Students Name) has comleted the Deep Run 45.
-      _________________________(Guardians Signiture)</p>
-    </section>
--->
+    <table id="Data">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Day/Night</th>
+                <th>Hours</th>
+                <th>Minutes</th>
+                <th>Seconds</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be inserted here -->
+        </tbody>
+    </table>
+
+    <script src="DR45SCRIPT(TEMP).js"></script>
+
 </body>
-
 </html>

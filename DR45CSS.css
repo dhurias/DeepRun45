@@ -1,126 +1,64 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
     text-align: center;
+    background-color: #f4f4f4;
+    margin: 0;
     padding: 20px;
 }
 
-.num {
-    font-size: 80px;
-    font-weight: bold;
-    color: #12214d;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    margin: 8px;
+.stopwatch-container {
+    margin-bottom: 20px;
 }
 
-/* Container to keep Start & Stop buttons side by side */
-.start-stop-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+.stopwatch {
+    font-size: 2rem;
+    font-weight: bold;
     margin-bottom: 10px;
 }
 
-/* Insert button directly below Start & Stop */
-.insert-btn {
-    display: block;
-    margin: 10px auto 20px auto;
-}
-
-/* Ensure all buttons are the same size */
-.btn, .tbtn, .abtn, .dbtn {
-    background-color: #233E90;
-    border: 4px solid #12214d;
-    font-size: 20px;
-    padding: 12px 25px;
-    border-radius: 10px;
-    font-weight: bold;
-    color: white;
+.buttons button {
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    height: 55px;
-    width: 160px;
+    border: none;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 
-.btn:hover, .tbtn:hover, .abtn:hover, .dbtn:hover {
-    background-color: #1b2f6b;
-    border-color: #0d1636;
-    transform: scale(1.05);
+#start {
+    background-color: green;
+    color: white;
 }
 
-/* Table styling */
+#stop {
+    background-color: red;
+    color: white;
+}
+
+#insert {
+    background-color: blue;
+    color: white;
+}
+
+.buttons button:hover {
+    opacity: 0.8;
+}
+
 table {
-    font-size: 18px;
-    border-collapse: collapse;
+    width: 80%;
     margin: 20px auto;
-    width: 60%;
-    background-color: white;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 th, td {
-    padding-left: 6px;
-    padding-right: 6px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border: 1px solid black;
-    text-align: center;
-    border: 4px solid #12214d;
+    padding: 10px;
+    border: 1px solid #ccc;
 }
 
 th {
-    background-color: #233E90;
+    background-color: #333;
     color: white;
-    border: 4px solid #12214d;
-}
-
-/* Move Calculate, Password, and Approve below the table */
-.bottom-section {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-}
-
-/* Make Print button same size but different color */
-.print {
-    background-color: #ff9900;
-    border: 4px solid #cc7a00;
-    height: 55px;
-    width: 160px;
-    border-radius: 10px;
-}
-
-.print:hover {
-    background-color: #e68a00;
-    border-color: #b36b00;
-}
-
-/* Input fields styling */
-input {
-    font-size: 18px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 2px solid #233E90;
-    outline: none;
-}
-
-input:focus {
-    border-color: #12214d;
-    box-shadow: 0 0 5px rgba(35, 62, 144, 0.5);
-}
-
-#password {
-    border: 5px solid #12214d;
-    font-size: 18.5px; /* Makes the text slightly bigger */
-    padding: 12px;   /* Adds some padding inside the input for a bigger field */
-    border-radius: 8px; /* Optional: rounds the corners for a smoother look */
-    transition: all 0.3s ease-in-out; /* Smooth transition for hover effect */
-    margin: 5px;
-}
-
-#password:hover {
-    border-color: #0d1636;
-    transform: scale(1.05);
 }
