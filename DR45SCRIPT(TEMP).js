@@ -27,9 +27,10 @@ stopBtn.addEventListener('click', function () {
 insertBtn.addEventListener('click', function () {
     if (hour > 0 || minute > 0 || second > 0 || count > 0) {
         let timeString = `${formatTime(hour)}:${formatTime(minute)}:${formatTime(second)}:${formatTime(count)}`;
+        let currentDate = getCurrentDate();  // Get the current date
         let dayNightStatus = dayNight;
         let approvalStatus = approved ? "Yes" : "No";
-        addRow(timeString, dayNightStatus, approvalStatus);
+        addRow(timeString, currentDate, dayNightStatus, approvalStatus);
     }
     resetStopwatch();
 });
@@ -83,16 +84,32 @@ function stopWatch() {
 }
 
 // Function to add a new row to the table
-function addRow(time, dayNight, approved) {
+function addRow(time, date, dayNight, approved) {
     let table = document.getElementById("Data").getElementsByTagName('tbody')[0];
     let row = table.insertRow();
     let timeCell = row.insertCell(0);
-    let dayNightCell = row.insertCell(1);
-    let approvedCell = row.insertCell(2);
+    let dateCell = row.insertCell(1);
+    let dayNightCell = row.insertCell(2);
+    let approvedCell = row.insertCell(3);
 
     timeCell.innerHTML = time;
+    dateCell.innerHTML = date;
     dayNightCell.innerHTML = dayNight;
     approvedCell.innerHTML = approved;
+}
+
+// Function to get the current date in YYYY-MM-DD format
+function getCurrentDate() {
+    let currentDate = new Date();
+    let year = currentDate.getFullYear();
+    let month = currentDate.getMonth() + 1; // Months are 0-based
+    let day = currentDate.getDate();
+    
+    // Ensure two-digit format for month and day
+    month = month < 10 ? "0" + month : month;
+    day = day < 10 ? "0" + day : day;
+
+    return `${year}-${month}-${day}`;
 }
 
 // Function to handle approval action
