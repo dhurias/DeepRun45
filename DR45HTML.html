@@ -1,46 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stopwatch Logger</title>
-    <link rel="stylesheet" href="styles.css">
+  <title>Deep Run Drive 45</title>
+  <link href="./DR45CSS.css" rel="stylesheet">
+  <script src="./DR45SCRIPT(TEMP).js" defer></script>
 </head>
+
 <body>
-
-    <h1>Stopwatch Logger</h1>
-
-    <div class="num">
-        <span id="hr">00</span>:<span id="min">00</span>:<span id="sec">00</span>:<span id="count">00</span>
+  <section>
+    <h1 id="dr45">Deep Run Drive 45</h1>
+    <div class="num" id="stopwatch">
+      <span id="hr">00</span>:<span id="min">00</span>:<span id="sec">00</span>:<span id="count">00</span>
     </div>
-
+    
+    <!-- Start & Stop buttons inside a flex container -->
     <div class="start-stop-container">
-        <button class="btn" id="start">Start</button>
-        <button class="btn" id="stop">Stop</button>
+      <button class="btn" id="start">Start</button> 
+      <button class="tbtn" id="stop">Stop</button> 
     </div>
-
-    <button class="btn insert-btn" id="insert">Insert</button>
-
-    <div class="table-container">
-        <table id="Data">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Day/Night</th>
-                    <th>Hours</th>
-                    <th>Minutes</th>
-                    <th>Seconds</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Data will be inserted here -->
-            </tbody>
-        </table>
+    
+    <!-- Insert button below Start & Stop -->
+    <div>
+      <button class="tbtn" id="insert">Insert</button>
     </div>
-
-    <script src="script.js"></script>
-
+    
+    <br>
+    <div>
+      <input id="password" class="password" type="password">
+      <button class="abtn" onclick="approve()">Approve</button>
+    </div>
+    <br>
+    
+    <button class="dbtn" onclick="calc()">Calculate</button>
+    <br>
+    <table id="Data" class="table" border="1">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Day/Night</th>
+          <th>Approved</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Entries will go here -->
+      </tbody>
+    </table>
+  </section>
 </body>
+
 </html>
