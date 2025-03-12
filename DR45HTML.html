@@ -8,31 +8,30 @@
 </head>
 <body>
 
-    <div class="stopwatch-container">
-        <h1>Stopwatch Logger</h1>
-        
-        <div class="stopwatch">
-            <span id="hr">00</span>:<span id="min">00</span>:<span id="sec">00</span>:<span id="count">00</span>
-        </div>
-        
-        <div class="buttons">
-            <button id="start">Start</button>
-            <button id="stop">Stop</button>
-            <button id="insert">Insert</button>
-        </div>
+    <h1>Stopwatch Logger</h1>
+
+    <div class="num">
+        <span id="hr">00</span>:<span id="min">00</span>:<span id="sec">00</span>:<span id="count">00</span>
     </div>
+
+    <div class="start-stop-container">
+        <button class="btn" id="start">Start</button>
+        <button class="btn" id="stop">Stop</button>
+    </div>
+
+    <button class="btn insert-btn" id="insert">Insert</button>
 
     <div class="table-container">
         <table id="Data">
             <thead>
                 <tr>
-                    <th class="table-header">Date</th>
-                    <th class="table-header">Time</th>
-                    <th class="table-header">Day/Night</th>
-                    <th class="table-header">Hours</th>
-                    <th class="table-header">Minutes</th>
-                    <th class="table-header">Seconds</th>
-                    <th class="table-header">Status</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Day/Night</th>
+                    <th>Hours</th>
+                    <th>Minutes</th>
+                    <th>Seconds</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,7 +40,7 @@
         </table>
     </div>
 
-    <script src="DR45SCRIPT(TEMP).js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
