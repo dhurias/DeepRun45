@@ -1,4 +1,3 @@
-// Initialize variables
 let startBtn = document.getElementById('start');
 let stopBtn = document.getElementById('stop');
 let insertBtn = document.getElementById('insert');
@@ -59,19 +58,18 @@ function stopWatch() {
         count++;
 
         if (count == 100) {
-            second++;
             count = 0;
+            second++;
         }
 
         if (second == 60) {
-            minute++;
             second = 0;
+            minute++;
         }
 
         if (minute == 60) {
-            hour++;
             minute = 0;
-            second = 0;
+            hour++;
         }
 
         document.getElementById('hr').innerHTML = formatTime(hour);
@@ -83,10 +81,17 @@ function stopWatch() {
     }
 }
 
+// Function to get the current date
+function getCurrentDate() {
+    let date = new Date();
+    return date.toLocaleDateString();
+}
+
 // Function to add a new row to the table
-function addRow(time, date, dayNight, approved) {
+function addRow(time, date, dayNightStatus, approvalStatus) {
     let table = document.getElementById("Data").getElementsByTagName('tbody')[0];
-    let row = table.insertRow();
+    let row = table.insertRow(table.rows.length);
+
     let timeCell = row.insertCell(0);
     let dateCell = row.insertCell(1);
     let dayNightCell = row.insertCell(2);
@@ -94,33 +99,48 @@ function addRow(time, date, dayNight, approved) {
 
     timeCell.innerHTML = time;
     dateCell.innerHTML = date;
-    dayNightCell.innerHTML = dayNight;
-    approvedCell.innerHTML = approved;
+    dayNightCell.innerHTML = dayNightStatus;
+    approvedCell.innerHTML = approvalStatus;
 }
 
-// Function to get the current date in YYYY-MM-DD format
-function getCurrentDate() {
-    let currentDate = new Date();
-    let year = currentDate.getFullYear();
-    let month = currentDate.getMonth() + 1; // Months are 0-based
-    let day = currentDate.getDate();
-    
-    // Ensure two-digit format for month and day
-    month = month < 10 ? "0" + month : month;
-    day = day < 10 ? "0" + day : day;
-
-    return `${year}-${month}-${day}`;
-}
-
-// Function to handle approval action
+// Function to approve the entry
 function approve() {
-    // Get the password and validate it (you can replace this with any password logic)
-    let password = passwordField.value.trim();
-    if (password === "your_password_here") {
+    if (passwordField.value === "1234") { // You can change this password to a dynamic value
         approved = true;
         alert("Approved!");
     } else {
-        approved = false;
-        alert("Incorrect password, approval failed.");
+        alert("Incorrect password");
     }
+}
+
+// Function to calculate the total hours
+function calc() {
+    let totalFullDayHours = 0;
+    let totalFullNightHours = 0;
+    let totalAllHours = 0;
+
+    let table = document.getElementById("Data").getElementsByTagName('tbody')[0];
+    for (let i = 0; i < table.rows.length; i++) {
+        let row = table.rows[i];
+        let time = row.cells[0].innerHTML;
+        let dayNight = row.cells[2].innerHTML;
+
+        let hours = parseInt(time.split(":")[0]);
+        let minutes = parseInt(time.split(":")[1]);
+        let seconds = parseInt(time.split(":")[2]);
+
+        let totalTimeInHours = hours + minutes / 60 + seconds / 3600;
+
+        if (dayNight === "Day") {
+            totalFullDayHours += totalTimeInHours;
+        } else {
+            totalFullNightHours += totalTimeInHours;
+        }
+
+        totalAllHours += totalTimeInHours;
+    }
+
+    document.getElementById("fullDayHours").innerHTML = totalFullDayHours.toFixed(2);
+    document.getElementById("fullNightHours").innerHTML = totalFullNightHours.toFixed(2);
+    document.getElementById("totalHours").innerHTML = totalAllHours.toFixed(2);
 }

@@ -1,15 +1,27 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Deep Run Drive 45</title>
-        <link href="./DR45CSS.css" rel="stylesheet">
-        <script src="" defer></script>
-      </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Run 45</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/DR45CSS.css') }}">
+    <script src="{{ url_for('static', filename='js/DR45SCRIPT(TEMP).js') }}" defer></script>
+</head>
 <body>
     <h1>Welcome to Deep Run 45</h1>
-    <p>the long para</p>
+    
+    <p>The long paragraph goes here. You can insert more content later.</p> 
+
     <p>Create a new account or login!</p>
-    <button id="createaccount">Create Account</button>
-    <button id="login">Create Account</button>
+
+    <div class="button-container">
+        <!-- Using Jinja to dynamically generate URLs for 'Create Account' and 'Login' -->
+        <a href="{{ url_for('register') }}">
+            <button type="button" id="createaccount">Create Account</button>
+        </a>
+        <a href="{{ url_for('login') }}">
+            <button type="button" id="login">Login</button>
+        </a>
+    </div>
 </body>
 </html>

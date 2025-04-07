@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Deep Run Drive 45 - Create Account</title>
+    <link href="{{ url_for('static', filename='css/DR45CSS.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/DR45SCRIPT(TEMP).js') }}" defer></script>
+</head>
+<body>
+    <h2>Create an Account</h2>
+    <form id="createAccountForm" method="POST" action="{{ url_for('register') }}">
+        <label for="firstname">First Name:</label>
+        <input id="firstname" class="name" type="text" name="firstname" required>
+
+        <label for="lastname">Last Name:</label>
+        <input id="lastname" class="name" type="text" name="lastname" required>
+
+        <label for="studentid">Student ID:</label>
+        <input id="studentid" class="studentid" type="text" name="studentid" required>
+
+        <label for="parentphonenum">Parent Phone Number:</label>
+        <input id="parentphonenum" class="num" type="tel" name="parentphonenum" required>
+
+        <label for="emailcreate">Email:</label>
+        <input id="emailcreate" class="email" type="email" name="emailcreate" required>
+
+        <label for="passwordcreate">Password (Last 4 Digits of Student ID):</label>
+        <input id="passwordcreate" class="password" type="password" name="passwordcreate" required>
+
+        <button type="submit">Create Account</button>
+    </form>
+</body>
+</html>

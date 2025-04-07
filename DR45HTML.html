@@ -2,59 +2,58 @@
 <html lang="en">
 
 <head>
-  <title>Deep Run Drive 45</title>
-  <link href="./DR45CSS.css" rel="stylesheet">
-  <script src="./DR45SCRIPT(TEMP).js" defer></script>
+    <title>Deep Run Drive 45</title>
+    <link href="{{ url_for('static', filename='css/DR45CSS.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/DR45SCRIPT(TEMP).js') }}" defer></script>
 </head>
 
 <body>
-  <section class="main-container">
-    <!-- Left Side: Stopwatch & Buttons -->
-    <div class="left-section">
-      <h1 id="dr45">Deep Run Drive 45</h1>
-      <div class="num" id="stopwatch">
-        <span id="hr">00</span>:<span id="min">00</span>:<span id="sec">00</span>:<span id="count">00</span>
-      </div>
+    <section class="main-container">
+        <!-- Left Side: Stopwatch & Buttons -->
+        <div class="left-section">
+            <h1 id="dr45">Deep Run Drive 45</h1>
+            <div class="num" id="stopwatch">
+                <span id="hr">00</span>:<span id="min">00</span>:<span id="sec">00</span>:<span id="count">00</span>
+            </div>
 
-      <div class="start-stop-container">
-        <button class="btn" id="start">Start</button> 
-        <button class="tbtn" id="stop">Stop</button> 
-      </div>
+            <div class="start-stop-container">
+                <button class="btn" id="start">Start</button>
+                <button class="tbtn" id="stop">Stop</button>
+            </div>
 
-      <button class="tbtn" id="insert">Insert</button>
+            <button class="tbtn" id="insert">Insert</button>
 
-      <div>
-        <input id="password" class="password" type="password">
-        <button class="abtn" onclick="approve()">Approve</button>
-      </div>
+            <div>
+                <input id="password" class="password" type="password">
+                <button class="abtn" onclick="approve()">Approve</button>
+            </div>
 
-      <button class="dbtn" onclick="calc()">Calculate</button>
-    </div>
+            <button class="dbtn" onclick="calc()">Calculate</button>
+        </div>
 
-    <!-- Right Side: Calculated Values -->
-    <div class="right-section">
-      <h2>Calculated Values</h2>
-      <p>Full Day Hours: <span id="fullDayHours">0</span></p>
-      <p>Full Night Hours: <span id="fullNightHours">0</span></p>
-      <p>Total Hours: <span id="totalHours">0</span></p>
-    </div>
-  </section>
+        <!-- Right Side: Calculated Values -->
+        <div class="right-section">
+            <h2>Calculated Values</h2>
+            <p>Full Day Hours: <span id="fullDayHours">0</span></p>
+            <p>Full Night Hours: <span id="fullNightHours">0</span></p>
+            <p>Total Hours: <span id="totalHours">0</span></p>
+        </div>
+    </section>
 
-  <!-- Centered Table -->
-  <table id="Data" class="table" border="1">
-    <thead>
-      <tr>
-        <th>Time</th>
-        <th>Date</th>
-        <th>Day/Night</th>
-        <th>Approved</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Entries will go here -->
-    </tbody>
-  </table>
+    <!-- Centered Table -->
+    <table id="Data" class="table" border="1">
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Day/Night</th>
+                <th>Approved</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Entries will go here -->
+        </tbody>
+    </table>
 </body>
-
 
 </html>
